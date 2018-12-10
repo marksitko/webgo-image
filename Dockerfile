@@ -82,4 +82,6 @@ RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     unique_id
 RUN docker-php-ext-enable imagick
 COPY php.ini /usr/local/etc/php/conf.d/
+# prevent caching for development
+COPY .htaccess /var/www/html/
 COPY info.php /var/www/html/
