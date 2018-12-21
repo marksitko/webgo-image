@@ -19,6 +19,7 @@ RUN apt-get update -y \
     libpspell-dev \ 
     libmagickwand-dev --no-install-recommends \ 
     && rm -r /var/lib/apt/lists/*
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN yes '' | pecl install imagick
 RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so
